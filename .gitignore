@@ -1,0 +1,12 @@
+# Generated files
+build/
+.xmake/
+out/
+
+# Compiled binaries
+*.exe
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
