@@ -1,0 +1,6 @@
+.git
+build
+.xmake
+out
+.vscode
+.idea
