@@ -73,15 +73,19 @@ inline int readInt(const std::string &prompt)
 
     while (true)
     {
-        std::cout << prompt;
-        std::getline(std::cin, input);
+        std::cout << prompt << std::flush;
+        if (!std::getline(std::cin, input))
+        {
+            return -1;
+        }
 
         try
         {
-            std::size_t position;
+            std::size_t position = 0;
             int number = std::stoi(input, &position);
 
-            if (position != input.length())
+            // validates that no unexpected characters remain after parsing an integer from input
+            if (input.find_first_not_of(" \t\r\n", position) != std::string::npos)
             {
                 println("Please enter a valid integer.");
                 continue;
@@ -130,9 +134,12 @@ inline std::string readString(const std::string &prompt)
 {
     while (true)
     {
-        std::cout << prompt;
+        std::cout << prompt << std::flush;
         std::string input;
-        std::getline(std::cin, input);
+        if (!std::getline(std::cin, input))
+        {
+            return "";
+        }
 
         if (!input.empty())
         {
