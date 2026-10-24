@@ -27,7 +27,7 @@ docker build -t projecty .
 Run the project:
 
 ```bash
-docker run --rm projecty
+docker run --rm -it projecty
 ```
 
 Rebuild the Docker image after modifying the source code.
