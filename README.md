@@ -32,7 +32,7 @@ docker run --rm -it projecty
 
 Rebuild the Docker image after modifying the source code.
 
-## Local development
+## Local development--
 
 For contributors who already have Xmake and a compatible C++23 compiler:
 
