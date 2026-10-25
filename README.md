@@ -1,4 +1,3 @@
-# Projecty
 # Projecty - Smart Parking Slot Tracker
 
 A terminal-based parking lot management system built in C++23. The idea was to implement common data structures like circular queues and fixed-size arrays in a practical context rather than just textbook examples.
