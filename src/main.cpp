@@ -7,6 +7,14 @@
 #include "includes/parking.hpp"
 #include "includes/utils.hpp"
 
+/**
+ * @brief Application entry point.
+ *
+ * Initializes the terminal interface, sets up the parking lot data structures,
+ * and runs the interactive operator menu loop until the operator selects exit.
+ *
+ * @return 0 upon successful execution.
+ */
 int main()
 {
     // Clear terminal on startup

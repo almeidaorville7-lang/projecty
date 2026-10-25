@@ -17,10 +17,10 @@ template <typename T, int Capacity>
 class Queue
 {
 public:
-    T records[Capacity];
-    int front; // Index of the oldest element
-    int rear;  // Index of the newest element
-    int count; // Number of elements currently stored
+    T records[Capacity]; ///< Internal fixed-size storage array for queue elements.
+    int front;           ///< Index of the oldest element in the queue.
+    int rear;            ///< Index of the most recently enqueued element.
+    int count;           ///< Number of elements currently stored in the queue.
 
     /**
      * @brief Constructs an empty queue.

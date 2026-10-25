@@ -10,32 +10,49 @@
 #include <string>
 
 // Capacities
-const int PARKING_CAPACITY = 10; // Total parking slots
-const int HISTORY_CAPACITY = 5;  // Max recent departures stored
+/**
+ * @brief Total number of parking slots available in the facility.
+ */
+const int PARKING_CAPACITY = 10;
 
-// Individual parking slot
+/**
+ * @brief Maximum number of recent vehicle departure records retained in the history queue.
+ */
+const int HISTORY_CAPACITY = 5;
+
+/**
+ * @brief Represents an individual parking slot in the facility.
+ */
 struct parking_slot
 {
-    int slot_id;
-    bool is_occupied;
-    std::string vehicle_id;
+    int slot_id;            ///< Unique identifier for the slot (1-based: 1 to PARKING_CAPACITY).
+    bool is_occupied;       ///< True if currently occupied by a vehicle, false if vacant.
+    std::string vehicle_id; ///< Vehicle registration ID if occupied, empty string otherwise.
 };
 
-// Record of a departed vehicle
+/**
+ * @brief Represents a logged record of a departed vehicle.
+ */
 struct departure_record
 {
-    std::string vehicle_id;
-    int slot_id;
+    std::string vehicle_id; ///< Registration identifier of the departed vehicle.
+    int slot_id;            ///< The slot number that was released.
 };
 
-// Queue of departure history
+/**
+ * @brief Type alias for the circular departure history queue.
+ */
 using departure_queue = Queue<departure_record, HISTORY_CAPACITY>;
 
-// Parking lot containing slots and departure history
+/**
+ * @brief Composite data structure representing the entire parking facility.
+ *
+ * Holds the fixed array of parking slots and the circular queue of recent departures.
+ */
 struct parking_lot
 {
-    parking_slot slots[PARKING_CAPACITY];
-    departure_queue departure_history;
+    parking_slot slots[PARKING_CAPACITY]; ///< Fixed array of all parking slots.
+    departure_queue departure_history;    ///< Circular queue storing recent departure history.
 };
 
 /**

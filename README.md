@@ -24,6 +24,9 @@ projecty/
       queue.hpp               -- generic circular queue template class
       departure_queue.cpp     -- display logic for departure records
       utils.hpp               -- terminal helpers, input validation, formatting
+  docs/                       -- generated HTML documentation site (root contains index.html for GitHub Pages)
+  Doxyfile                    -- Doxygen configuration file
+  mainpage.md                 -- documentation homepage source
   xmake.lua                   -- build configuration
   Dockerfile                  -- containerized build setup
 ```
@@ -33,6 +36,14 @@ projecty/
 - **Fixed-size array** for the parking slots (10 slots, stored as an array of structs)
 - **Circular queue** (template class) for departure history — overwrites the oldest entry when full
 - **Structs** for parking slots and departure records
+
+### Generating documentation locally
+
+```bash
+doxygen Doxyfile
+```
+
+Open `docs/index.html` in your browser.
 
 ## How to build and run
 
@@ -51,52 +62,6 @@ GCC 14+, Clang 17+, or MSVC 19.35+ should work. The project uses `std::format` w
 docker build -t projecty .
 docker run --rm -it projecty
 ```
-
-## Contributing
-
-Fork the repo, make a branch, push your changes, and open a PR. Make sure `xmake` builds without errors before submitting. Don't commit build artifacts.
-
-A small C++23 project built with Xmake and Docker.
-
-## Requirements
-
-- Git
-- Docker Desktop on Windows/macOS, or Docker Engine on Linux
-
-No local C++ compiler or Xmake installation is required.
-
-## Getting started
-
-Clone the repository:
-
-```bash
-git clone https://github.com/almeidaorville7-lang/projecty.git
-cd projecty
-```
-
-Build the project:
-
-```bash
-docker build -t projecty .
-```
-
-Run the project:
-
-```bash
-docker run --rm -it projecty
-```
-
-Rebuild the Docker image after modifying the source code.
-
-## Local development--
-
-For contributors who already have Xmake and a compatible C++23 compiler:
-
-```bash
-xmake
-xmake run projecty
-```
-
 ## Contributing
 
 1. Create a feature branch.
